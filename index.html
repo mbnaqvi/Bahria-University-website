@@ -3,65 +3,639 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bahria University - Replica (extended)</title>
+  <title>Bahria University - Replica</title>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --primary:#002147;
-      --nav:#013b74;
-      --muted:#f4f4f4;
-      --accent:#ffd200;
-      --text:#222;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    body{font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:var(--text);line-height:1.5}
-    header{background:var(--primary);color:#fff}
-    .top-bar{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 5%;gap:1rem}
-    .brand{display:flex;align-items:center;gap:1rem}
-    .brand h1{font-size:1.25rem}
-    .logo{height:56px;width:auto}
-    nav{background:var(--nav)}
-    .nav-bar{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;padding:0.5rem 5%}
-    .nav-bar a{color:#fff;text-decoration:none;padding:0.5rem 0.75rem;font-weight:600}
-    .nav-bar a:hover{background:rgba(255,255,255,0.06);border-radius:6px}
-    .hero-section{position:relative}
-    .hero-section img{width:100%;height:auto;display:block}
-    .hero-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.45);padding:1rem 1.25rem;border-radius:8px;color:#fff;max-width:min(90%,900px);text-align:center}
-    .hero-text h2{font-size:1.5rem;margin-bottom:0.25rem}
-    .section{padding:2.25rem 5%}
-    .section h2{font-size:1.25rem;margin-bottom:0.75rem}
-    p.lead{color:#333;opacity:0.95}
-    .welcome-section{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;align-items:center}
-    .welcome-image img{width:100%;height:auto;border-radius:8px;display:block}
-    .welcome-content{padding:0.5rem}
-    .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .info-card{background:var(--muted);padding:1rem;border-radius:8px;min-height:160px;display:flex;flex-direction:column;gap:0.5rem;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    .info-card img{width:100%;height:110px;object-fit:cover;border-radius:6px}
-    .info-card h3{font-size:1rem}
-    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}
-    .why-item{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.04);text-align:center}
-    .why-item .icon{font-size:2rem;margin-bottom:0.5rem}
-    .academics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .academics-card{background:var(--muted);padding:1rem;border-radius:8px;text-align:center}
-    .academics-card img{max-width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:0.5rem}
-    .campuses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .campus-card{background:#fff;padding:0.5rem;border-radius:8px;display:flex;flex-direction:column;gap:0.5rem;align-items:flex-start}
-    .campus-card img{width:100%;height:140px;object-fit:cover;border-radius:6px}
-    .campus-card h4{margin-top:0.25rem}
-    .muted-small{font-size:0.9rem;color:#333}
-    .actions{margin-top:auto}
-    .btn{display:inline-block;padding:0.45rem 0.6rem;border-radius:6px;background:var(--primary);color:#fff;text-decoration:none;font-weight:600}
-    .facilities-grid,.research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .facility-card,.research-card{background:var(--muted);padding:1rem;border-radius:8px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    .facility-card img,.research-card img{max-width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:0.5rem}
-    .final-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;background:var(--muted);padding:2rem 5%}
-    .final-left ul{list-style:none;line-height:2}
-    .final-left ul li{margin-bottom:0.25rem;font-weight:500}
-    .final-right h3{margin-bottom:0.5rem}
-    .final-right p{margin-bottom:0.75rem;font-size:0.9rem}
-    footer{background:var(--primary);color:#fff;padding:1rem 5%;text-align:center}
-    @media(max-width:600px){
-      .brand h1{font-size:1rem}
-      .hero-text h2{font-size:1.1rem}
+    
+    :root {
+      --primary: #002147;
+      --nav: #003d7a;
+      --muted: #f8f9fa;
+      --accent: #ffd700;
+      --text: #333;
+      --border: #ddd;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: rgba(0, 33, 71, 0.85);
+      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 3%;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .brand h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin: 0;
+    }
+    
+    .brand p {
+      font-size: 0.85rem;
+      font-style: italic;
+      margin: 0;
+      opacity: 0.9;
+    }
+    
+    .logo {
+      height: 55px;
+      width: auto;
+    }
+    
+    .top-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .top-links a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .top-links a:hover {
+      color: var(--accent);
+    }
+    
+    .bu-logo {
+      height: 40px;
+      width: auto;
+    }
+    
+    nav {
+      background: transparent;
+      padding: 0.5rem 0;
+    }
+    
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      justify-content: center;
+      padding: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .nav-bar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+    }
+    
+    .nav-bar a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-bar a:hover::after {
+      width: 80%;
+    }
+    
+    .nav-bar a:hover {
+      color: var(--accent);
+    }
+    
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      height: 85vh;
+      min-height: 500px;
+    }
+    
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.75);
+    }
+    
+    .hero-text {
+      position: absolute;
+      right: 5%;
+      bottom: 10%;
+      background: rgba(0, 33, 71, 0.9);
+      padding: 2.5rem 3.5rem;
+      color: #fff;
+      text-align: left;
+      backdrop-filter: blur(8px);
+      max-width: 600px;
+    }
+    
+    .hero-text h2 {
+      font-size: 3rem;
+      margin-bottom: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+    
+    .section {
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    p.lead {
+      color: #555;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .welcome-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      background: #fff;
+    }
+    
+    .welcome-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .welcome-content {
+      padding: 1rem;
+    }
+    
+    .welcome-content h2 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .welcome-content p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .info-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    .info-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .info-card-content {
+      padding: 1.5rem;
+    }
+    
+    .info-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    
+    .muted-small {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .actions {
+      margin-top: 1.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+      border: 2px solid var(--primary);
+    }
+    
+    .btn:hover {
+      background: var(--nav);
+      border-color: var(--nav);
+    }
+    
+    .why-section {
+      background: var(--muted);
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .why-item {
+      background: #fff;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .why-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .why-item .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .why-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    
+    .academics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .academics-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .academics-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .academics-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .academics-card h3 {
+      padding: 1.5rem 1rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    
+    .academics-card p {
+      padding: 0 1rem 1.5rem;
+      color: #666;
+    }
+    
+    .facilities-grid,
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .facility-card,
+    .research-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .facility-card:hover,
+    .research-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .facility-card img,
+    .research-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .facility-card h3,
+    .research-card h3 {
+      padding: 1.5rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    
+    .campuses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .campus-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .campus-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .campus-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .campus-card-content {
+      padding: 1.5rem;
+    }
+    
+    .campus-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    
+    .footer-main {
+      background: var(--primary);
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 3rem;
+      padding: 3rem 5%;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-left h3,
+    .footer-right h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+    
+    .footer-left ul li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-left ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-left ul li a:hover {
+      color: var(--accent);
+    }
+    
+    .footer-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    
+    .footer-center img {
+      max-width: 200px;
+      height: auto;
+      opacity: 0.9;
+    }
+    
+    .footer-right p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    
+    .footer-right strong {
+      color: var(--accent);
+      display: block;
+      margin-top: 0.5rem;
+    }
+    
+    .footer-bottom {
+      background: var(--accent);
+      color: var(--primary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      font-weight: 600;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-bottom .uan {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    
+    @media (max-width: 1200px) {
+      .top-links {
+        font-size: 0.7rem;
+        gap: 1rem;
+      }
+      
+      .nav-bar a {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .top-bar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 3%;
+      }
+      
+      .top-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      
+      header {
+        position: relative;
+      }
+      
+      .hero-section {
+        height: 60vh;
+      }
+      
+      .welcome-section {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+      
+      .footer-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .footer-center {
+        margin: 2rem 0;
+        padding: 0;
+      }
+      
+      .nav-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .nav-bar a {
+        padding: 0.75rem 1rem;
+        text-align: center;
+      }
+      
+      .nav-bar a::after {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .brand h1 {
+        font-size: 1.1rem;
+      }
+      
+      .brand p {
+        font-size: 0.75rem;
+      }
+      
+      .logo {
+        height: 45px;
+      }
+      
+      .bu-logo {
+        height: 30px;
+      }
+      
+      .top-links {
+        font-size: 0.65rem;
+      }
+      
+      .hero-section {
+        height: 50vh;
+      }
+      
+      .hero-text {
+        right: 3%;
+        bottom: 5%;
+        padding: 1.5rem 2rem;
+      }
+      
+      .hero-text h2 {
+        font-size: 1.5rem;
+      }
+      
+      .section {
+        padding: 2rem 5%;
+      }
+      
+      .section h2 {
+        font-size: 1.5rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -70,50 +644,80 @@
 <header>
   <div class="top-bar">
     <div class="brand">
-      <img class="logo" src="bu_logo.png" alt="Bahria University logo left">
-      <h1>Bahria University</h1>
+      <img class="logo" src="bu_logo.png" alt="Bahria University logo">
+      <div>
+        <h1>Bahria University</h1>
+        <p>Discovering Knowledge</p>
+      </div>
     </div>
-    <img class="logo" src="bu_logo_small_1.png" alt="Bahria University logo right">
+    <div class="top-links">
+      <a href="#">STUDENTS</a>
+      <a href="#">ALUMNI</a>
+      <a href="#">SUSTAINABILITY</a>
+      <a href="#">QA</a>
+      <a href="#">CAREERS</a>
+      <a href="#">DOWNLOADS</a>
+      <a href="#">WEBMAIL</a>
+      <img class="bu-logo" src="bu_logo_small_1.png" alt="BU Logo">
+    </div>
   </div>
+  <nav>
+    <div class="nav-bar">
+      <a href="#">ABOUT</a>
+      <a href="#academics">ACADEMICS</a>
+      <a href="#admissions">ADMISSIONS</a>
+      <a href="#research">RESEARCH & INNOVATIONS</a>
+      <a href="#international">INTERNATIONAL</a>
+      <a href="#campuses">CAMPUS</a>
+    </div>
+  </nav>
 </header>
-
-<nav>
-  <div class="nav-bar">
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#admissions">Admissions</a>
-    <a href="#academics">Academics</a>
-    <a href="#campuses">Campuses</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
 
 <section class="hero-section">
   <img src="Screenshot 2025-10-01 224945.png" alt="Student studying at Bahria University">
   <div class="hero-text">
-    <h2>Welcome to Bahria University</h2>
-    <p>Discover. Learn. Achieve.</p>
+    <h2>DISCOVER BAHRIA UNIVERSITY</h2>
   </div>
 </section>
 
-<section id="about" class="section welcome-section" aria-labelledby="welcome-title">
+<section id="about" class="section welcome-section">
   <div class="welcome-image">
     <img src="main_campus.jpg" alt="Welcome to Bahria University image">
   </div>
   <div class="welcome-content">
-    <h2 id="welcome-title">Welcome to Bahria University</h2>
-    <p class="lead">Bahria University is dedicated to excellence in teaching, research and community service...</p>
-    <p class="muted-small">Explore our campuses, programs, scholarship opportunities, and international collaborations.</p>
-    <p style="margin-top:0.75rem"><a class="btn" href="#academics">Explore Academics</a></p>
+    <h2>Welcome to Bahria University</h2>
+    <p class="lead">Bahria University is dedicated to excellence in teaching, research and community service. We strive to create an environment that fosters innovation, critical thinking, and personal growth.</p>
+    <p class="muted-small">Explore our campuses, programs, scholarship opportunities, and international collaborations. Join us in shaping the future through quality education and cutting-edge research.</p>
+    <p style="margin-top:1.5rem"><a class="btn" href="#academics">Explore Academics</a></p>
   </div>
 </section>
 
 <section class="section">
   <div class="info-grid">
-    <article class="info-card"><img src="scholorship.jpg" alt="Scholarships"><h3>Scholarships</h3><p class="muted-small">Information on available scholarships...</p><div class="actions"><a class="btn" href="#">View Scholarships</a></div></article>
-    <article class="info-card"><img src="datestoremember.png" alt="Dates to Remember"><h3>Dates to Remember</h3><p class="muted-small">Application deadlines, semester start dates...</p><div class="actions"><a class="btn" href="#">Academic Calendar</a></div></article>
-    <article class="info-card"><img src="international_students.jpg" alt="International Students"><h3>International Students</h3><p class="muted-small">Guidance for international applicants...</p><div class="actions"><a class="btn" href="#">International Info</a></div></article>
+    <article class="info-card">
+      <img src="scholorship.jpg" alt="Scholarships">
+      <div class="info-card-content">
+        <h3>Scholarships</h3>
+        <p class="muted-small">Information on available scholarships and financial aid opportunities for deserving students.</p>
+        <div class="actions"><a class="btn" href="#">View Scholarships</a></div>
+      </div>
+    </article>
+    <article class="info-card">
+      <img src="datestoremember.png" alt="Dates to Remember">
+      <div class="info-card-content">
+        <h3>Dates to Remember</h3>
+        <p class="muted-small">Application deadlines, semester start dates, and important academic milestones.</p>
+        <div class="actions"><a class="btn" href="#">Academic Calendar</a></div>
+      </div>
+    </article>
+    <article class="info-card">
+      <img src="international_students.jpg" alt="International Students">
+      <div class="info-card-content">
+        <h3>International Students</h3>
+        <p class="muted-small">Guidance for international applicants, visa information, and student support services.</p>
+        <div class="actions"><a class="btn" href="#">International Info</a></div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -121,42 +725,104 @@
   <h2>Why Bahria University</h2>
   <p class="lead">An institution committed to innovation, practical learning and a supportive environment.</p>
   <div class="why-grid">
-    <article class="why-item"><div class="icon">🎓</div><h4>Quality Education</h4><p class="muted-small">Accredited programs taught by experienced faculty.</p></article>
-    <article class="why-item"><div class="icon">🔬</div><h4>Research & Labs</h4><p class="muted-small">Modern labs and active research centers.</p></article>
-    <article class="why-item"><div class="icon">🌐</div><h4>Global Links</h4><p class="muted-small">Partnerships with universities worldwide.</p></article>
-    <article class="why-item"><div class="icon">🤝</div><h4>Industry Connections</h4><p class="muted-small">Strong internship and placement support.</p></article>
+    <article class="why-item">
+      <div class="icon">🎓</div>
+      <h4>Quality Education</h4>
+      <p class="muted-small">Accredited programs taught by experienced faculty with industry expertise.</p>
+    </article>
+    <article class="why-item">
+      <div class="icon">🔬</div>
+      <h4>Research & Labs</h4>
+      <p class="muted-small">Modern labs and active research centers equipped with latest technology.</p>
+    </article>
+    <article class="why-item">
+      <div class="icon">🌐</div>
+      <h4>Global Links</h4>
+      <p class="muted-small">Partnerships with universities worldwide for exchange programs.</p>
+    </article>
+    <article class="why-item">
+      <div class="icon">🤝</div>
+      <h4>Industry Connections</h4>
+      <p class="muted-small">Strong internship and placement support with leading organizations.</p>
+    </article>
   </div>
 </section>
 
 <section id="academics" class="section academics-section">
   <h2>Academics</h2>
-  <p class="lead">Undergraduate, postgraduate and research degrees across disciplines.</p>
+  <p class="lead">Undergraduate, postgraduate and research degrees across multiple disciplines.</p>
   <div class="academics-grid">
-    <article class="academics-card"><img src="under.jpg" alt="Undergraduate"><h3>Undergraduate</h3><p class="muted-small">Bachelor degrees with practical foundations.</p></article>
-    <article class="academics-card"><img src="grad.jpg" alt="Postgraduate"><h3>Postgraduate</h3><p class="muted-small">Masters and PhD programs with research opportunities.</p></article>
-    <article class="academics-card"><img src="phd.jpg" alt="Research"><h3>Research</h3><p class="muted-small">Active research centers and funded projects.</p></article>
-    <article class="academics-card"><img src="lifelong.jpg" alt="Continuing Education"><h3>Continuing Education</h3><p class="muted-small">Short courses and professional development.</p></article>
+    <article class="academics-card">
+      <img src="under.jpg" alt="Undergraduate Programmes">
+      <h3>UNDERGRADUATE PROGRAMMES</h3>
+      <p class="muted-small">Bachelor degrees with practical foundations.</p>
+    </article>
+    <article class="academics-card">
+      <img src="grad.jpg" alt="Graduate Programmes">
+      <h3>GRADUATE PROGRAMMES</h3>
+      <p class="muted-small">Masters programs with research opportunities.</p>
+    </article>
+    <article class="academics-card">
+      <img src="phd.jpg" alt="PHD Programmes">
+      <h3>PHD PROGRAMMES</h3>
+      <p class="muted-small">Active research centers and funded projects.</p>
+    </article>
+    <article class="academics-card">
+      <img src="lifelong.jpg" alt="Lifelong Learning">
+      <h3>LIFELONG LEARNING</h3>
+      <p class="muted-small">Short courses and professional development.</p>
+    </article>
   </div>
 </section>
 
 <section id="facilities" class="section">
   <h2>Facilities</h2>
   <div class="facilities-grid">
-    <div class="facility-card"><img src="clubs.jpg" alt="Student Clubs"><h3>Student Clubs</h3><p class="muted-small">Vibrant clubs fostering creativity and leadership.</p></div>
-    <div class="facility-card"><img src="career.jpg" alt="Career Advisory"><h3>Career Advisory</h3><p class="muted-small">Guidance and resources for career growth.</p></div>
-    <div class="facility-card"><img src="sports.jpg" alt="Sports"><h3>Sports</h3><p class="muted-small">Modern facilities for fitness and recreation.</p></div>
+    <div class="facility-card">
+      <img src="clubs.jpg" alt="Student Clubs">
+      <h3>Student Clubs</h3>
+      <p class="muted-small">Vibrant clubs fostering creativity and leadership.</p>
+    </div>
+    <div class="facility-card">
+      <img src="career.jpg" alt="Career Advisory">
+      <h3>Career Advisory</h3>
+      <p class="muted-small">Guidance and resources for career growth.</p>
+    </div>
+    <div class="facility-card">
+      <img src="sports.jpg" alt="Sports">
+      <h3>Sports</h3>
+      <p class="muted-small">Modern facilities for fitness and recreation.</p>
+    </div>
   </div>
 </section>
 
 <section id="research" class="section">
-  <h2>Research & Innovation</h2>
+  <h2>RESEARCH, INNOVATION & COMMERCIALIZATION</h2>
   <div class="research-grid">
-    <div class="research-card"><img src="1.jpg" alt=""><h3>Bahria Innovative Sciences & Technologies</h3></div>
-    <div class="research-card"><img src="2.jpg" alt=""><h3>Research Innovation & Commercialization</h3></div>
-    <div class="research-card"><img src="3.jpg" alt=""><h3>Excellence in Artificial Intelligence</h3></div>
-    <div class="research-card"><img src="4.jpg" alt=""><h3>National Institute of Maritime Affairs</h3></div>
-    <div class="research-card"><img src="5.jpg" alt=""><h3>Maritime Science & Technology Park</h3></div>
-    <div class="research-card"><img src="6.jpg" alt=""><h3>Business Incubation Center</h3></div>
+    <div class="research-card">
+      <img src="1.jpg" alt="">
+      <h3>Bahria Innovative Sciences & Technologies</h3>
+    </div>
+    <div class="research-card">
+      <img src="2.jpg" alt="">
+      <h3>Research Innovation & Commercialization</h3>
+    </div>
+    <div class="research-card">
+      <img src="3.jpg" alt="">
+      <h3>Excellence in Artificial Intelligence</h3>
+    </div>
+    <div class="research-card">
+      <img src="4.jpg" alt="">
+      <h3>National Institute of Maritime Affairs</h3>
+    </div>
+    <div class="research-card">
+      <img src="5.jpg" alt="">
+      <h3>Maritime Science & Technology Park</h3>
+    </div>
+    <div class="research-card">
+      <img src="6.jpg" alt="">
+      <h3>Business Incubation Center</h3>
+    </div>
   </div>
 </section>
 
@@ -164,45 +830,95 @@
   <h2>BU Campuses</h2>
   <p class="lead">Multiple campuses serving students across Pakistan.</p>
   <div class="campuses-grid">
-    <article class="campus-card"><img src="karachi.jpg" alt="Karachi Campus"><h4>Karachi Campus</h4><p class="muted-small">A hub for maritime, engineering, and management studies.</p></article>
-    <article class="campus-card"><img src="lahore.jpg" alt="Lahore Campus"><h4>Lahore Campus</h4><p class="muted-small">Strong industry links and modern facilities.</p></article>
-    <article class="campus-card"><img src="islamabad.jpg" alt="Islamabad E-8 Campus"><h4>Islamabad Campus (E-8)</h4><p class="muted-small">Main campus with diverse programs and research centers.</p></article>
-    <article class="campus-card"><img src="other.jpg" alt="Islamabad H-11 Campus"><h4>Islamabad Campus (H-11)</h4><p class="muted-small">Expanding campus with state-of-the-art facilities.</p></article>
-    <article class="campus-card"><img src="psychology.jpg" alt="Institute of Professional Psychology"><h4>Institute of Professional Psychology, Karachi</h4><p class="muted-small">Specialized institute for psychology studies.</p></article>
-    <article class="campus-card"><img src="health-karachi.jpg" alt="BU Health Sciences Karachi"><h4>BU Health Sciences, Karachi</h4><p class="muted-small">Health sciences campus adjacent to PNS Shifa.</p></article>
-    <article class="campus-card"><img src="health-isl.jpg" alt="BU Health Sciences Islamabad"><h4>BU Health Sciences, Islamabad</h4><p class="muted-small">Located in Naval Anchorage, Islamabad.</p></article>
+    <article class="campus-card">
+      <img src="karachi.jpg" alt="Karachi Campus">
+      <div class="campus-card-content">
+        <h4>Karachi Campus</h4>
+        <p class="muted-small">A hub for maritime, engineering, and management studies.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="lahore.jpg" alt="Lahore Campus">
+      <div class="campus-card-content">
+        <h4>Lahore Campus</h4>
+        <p class="muted-small">Strong industry links and modern facilities.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="islamabad.jpg" alt="Islamabad E-8 Campus">
+      <div class="campus-card-content">
+        <h4>Islamabad Campus (E-8)</h4>
+        <p class="muted-small">Main campus with diverse programs and research centers.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="other.jpg" alt="Islamabad H-11 Campus">
+      <div class="campus-card-content">
+        <h4>Islamabad Campus (H-11)</h4>
+        <p class="muted-small">Expanding campus with state-of-the-art facilities.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="psychology.jpg" alt="Institute of Professional Psychology">
+      <div class="campus-card-content">
+        <h4>Institute of Professional Psychology, Karachi</h4>
+        <p class="muted-small">Specialized institute for psychology studies.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="health-karachi.jpg" alt="BU Health Sciences Karachi">
+      <div class="campus-card-content">
+        <h4>BU Health Sciences, Karachi</h4>
+        <p class="muted-small">Health sciences campus adjacent to PNS Shifa.</p>
+      </div>
+    </article>
+    <article class="campus-card">
+      <img src="health-isl.jpg" alt="BU Health Sciences Islamabad">
+      <div class="campus-card-content">
+        <h4>BU Health Sciences, Islamabad</h4>
+        <p class="muted-small">Located in Naval Anchorage, Islamabad.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="final-info">
-  <div class="final-left">
+<section class="footer-main">
+  <div class="footer-left">
+    <h3>BAHRIA UNIVERSITY</h3>
     <ul>
-      <li>Bahria University</li>
-      <li>Board of Governors</li>
-      <li>Organizational Structure</li>
-      <li>Programme Overview</li>
-      <li>Academic Calendar</li>
-      <li>Faculty Profiles</li>
-      <li>Office Directory</li>
-      <li>Expansion & Procurement</li>
-      <li>Tender Notices</li>
+      <li><a href="#">Board of Governors</a></li>
+      <li><a href="#">Organizational Structure</a></li>
+      <li><a href="#">Programme Overview</a></li>
+      <li><a href="#">Academic Calendar</a></li>
+      <li><a href="#">Faculty Profiles</a></li>
+      <li><a href="#">Office Directory</a></li>
+    </ul>
+    <h3>EXPANSION & PROCUREMENT</h3>
+    <ul>
+      <li><a href="#">Tender Notices</a></li>
     </ul>
   </div>
-  <div class="final-right">
-    <h3>Locations</h3>
-    <p><strong>Head Office</strong><br>Shangrila Road, Sector E-8, Islamabad, Ph: +92-51-9260002</p>
-    <p><strong>E-8, Islamabad Campus</strong><br>Shangrila Road, Sector E-8, Islamabad, Ph: +92-51-9260002</p>
-    <p><strong>H-11, Islamabad Campus</strong><br>Plot 83, H-11/4, Islamabad, Ph: 051-9259503, 051-9259493</p>
-    <p><strong>Lahore Campus</strong><br>47-C, Civic Center, Johar Town Lahore, Ph: 042-99233404</p>
-    <p><strong>Karachi Campus</strong><br>13 National Stadium Road, Karachi, Ph: 021 9924002-6</p>
-    <p><strong>Institute of Professional Psychology, Karachi</strong><br>13 National Stadium Road, Karachi, Ph: +92-21-111-111-028</p>
+
+  <div class="footer-center">
+    <img src="footer_logo.jpg" alt="Bahria University Anchor Logo">
+  </div>
+
+  <div class="footer-right">
+    <h3>LOCATIONS</h3>
+    <p><strong>Head Office</strong><br>Shangrila Road, Sector E-8, Islamabad<br>Ph: +92-51-9260002</p>
+    <p><strong>E-8, Islamabad Campus</strong><br>Shangrila Road, Sector E-8, Islamabad<br>Ph: +92-51-9260002</p>
+    <p><strong>H-11, Islamabad Campus</strong><br>Plot 83, H-11/4, Islamabad<br>Ph: 051-9259503, 051-9259493</p>
+    <p><strong>Lahore Campus</strong><br>47-C, Civic Center, Johar Town Lahore<br>Ph: 042-99233404</p>
+    <p><strong>Karachi Campus</strong><br>13 National Stadium Road, Karachi<br>Ph: 021 9924002-6</p>
+    <p><strong>Institute of Professional Psychology, Karachi</strong><br>13 National Stadium Road, Karachi<br>Ph: +92-21-111-111-028</p>
     <p><strong>Health Sciences Campus, Karachi</strong><br>Adjacent to PNS Shifa, Sailor Street, DHA Phase 2, Karachi</p>
-    <p><strong>Health Sciences Campus, Islamabad</strong><br>Naval Anchorage, Islamabad Phone: +92-51-8855240</p>
+    <p><strong>Health Sciences Campus, Islamabad</strong><br>Naval Anchorage, Islamabad<br>Phone: +92-51-8855240</p>
   </div>
 </section>
 
-<footer>
-  <p>&copy; 2025 Bahria University. All Rights Reserved.</p>
+<footer class="footer-bottom">
+  <p>COPYRIGHT © 2025 BAHRIA UNIVERSITY ISLAMABAD</p>
+  <p class="uan">UAN: 111-111-028</p>
 </footer>
 
 </body>
