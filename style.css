@@ -226,12 +226,12 @@ img {
   position: relative;
   z-index: 2;
   background: rgba(0, 33, 71, 0.95);
-  padding: 1.5rem 3rem;
+  padding: 1rem 2rem;
   color: var(--white);
   text-align: center;
   backdrop-filter: blur(10px);
-  max-width: 600px;
-  border-left: 4px solid var(--accent);
+  max-width: 500px;
+  border-left: 3px solid var(--accent);
   box-shadow: var(--shadow-lg);
   animation: fadeInUp 1s ease-out;
   margin-right: 0;
@@ -249,10 +249,10 @@ img {
 }
 
 .hero-text h2 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -605,27 +605,27 @@ img {
 .footer-left h3,
 .footer-right h3 {
   color: var(--accent);
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   text-transform: uppercase;
 }
 
 .footer-left ul {
   list-style: none;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
 }
 
 .footer-left ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .footer-left ul li a {
   color: var(--white);
   text-decoration: none;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   transition: var(--transition-base);
   display: inline-block;
   position: relative;
@@ -667,12 +667,12 @@ img {
 }
 
 .footer-right {
-  font-size: 0.75rem;
+  font-size: 0.65rem;
 }
 
 .location-item {
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -682,15 +682,15 @@ img {
 }
 
 .location-item p {
-  margin-bottom: 0.2rem;
-  line-height: 1.5;
+  margin-bottom: 0.15rem;
+  line-height: 1.4;
 }
 
 .location-item strong {
   color: var(--accent);
   display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.75rem;
 }
 
 .footer-bottom {
